@@ -13,7 +13,7 @@ public class fila implements Runnable{
 			System.out.println("Tamanho da fila: " + this.tam);
 			this.addFila();
 			try {
-				Thread.sleep(gerador.nextInt(5) * 1000);
+				Thread.sleep(gerador.nextInt(7) * 1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

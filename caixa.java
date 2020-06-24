@@ -22,7 +22,7 @@ public class caixa implements Runnable{
 		while(f1.abertoFechado() == true && f1.tamanho() > 0) {
 
 			if(this.vazio == true) {
-				qtdItens = gerador.nextInt(10);
+				qtdItens = gerador.nextInt(51);
 				f1.remover();
 				this.vazio = false;
 				System.out.println("O " + ca + " recebeu " + qtdItens + " itens! ");
