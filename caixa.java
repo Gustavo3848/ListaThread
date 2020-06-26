@@ -1,48 +1,44 @@
 package Fila;
-import java.util.Random;
+
 public class caixa implements Runnable{
-	public String ca;
-	public int qtdItens;
-	public boolean vazio = true;
-	public static fila f1 = new fila();
-	public caixa (String x) {
-		this.ca = x;
+
+	private String caixa;
+	private int qtd;
+	public static estruturaFila f1 = new estruturaFila();
+
+	public caixa(String x) {
+		this.caixa = x;
+
 	}
-
-
-
-
 
 
 	@Override 
 	public void run() {
-		Random gerador = new Random();
+		while(f1.abertoFechado) {
+			while(f1.vazia() == false) {
 
-
-		while(f1.abertoFechado() == true && f1.tamanho() > 0) {
-
-			if(this.vazio == true) {
-				qtdItens = gerador.nextInt(51);
-				f1.remover();
-				this.vazio = false;
-				System.out.println("O " + ca + " recebeu " + qtdItens + " itens! ");
+				this.qtd = f1.valor();
+				f1.removerFila();
+				f1.teste();
+				System.out.println("O " + caixa + " recebeu " + this.qtd + " itens!\r ");
 				try{
-					Thread.sleep(this.qtdItens * 1000);
+					Thread.sleep(this.qtd * 1000);
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}
 
-				System.out.println("O " + ca + " Liberou !");
-				qtdItens = 0;
-				this.vazio = true;
+				System.out.println("O " + caixa + " Liberou !\r");
+
 			}
 		}
+		System.out.println("Processo Finalizado !!");
 	}
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
